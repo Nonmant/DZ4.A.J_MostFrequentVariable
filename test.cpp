@@ -93,3 +93,15 @@ TEST_CASE("test 4", ""){
             "0h"
     );
 }
+
+TEST_CASE("shouldn't be only digits", ""){
+    std::stringstream input(
+            "0 yes yes\n"
+            "1 1 1 a"
+            );
+    std::stringstream output;
+    parseFile(input,output);
+    REQUIRE(output.str() ==
+            "a"
+    );
+}

@@ -8,6 +8,8 @@ bool canBeId(bool digitCanBeFirst, const std::string & word){
         return false;
     if(!digitCanBeFirst && isdigit(word[0]))
         return false;
+    if(std::all_of(word.begin(), word.end(),isdigit))
+        return false;
     return std::all_of(word.begin(), word.end(),
                        [](auto c){
                            return c == '_' || isdigit(c) || isalpha(c);
